@@ -44,3 +44,10 @@ A public web app that turns natural-language prompts into structured Library of 
     "sourceUrl": "https://www.loc.gov/item/..."
   }
 ]
+```
+
+## Prototype visualization
+
+`index.html` contains a standalone visualization inspired by FlowingData that shows life-expectancy gaps by
+country of birth. Open it directly in a browser (no build step required) to sort, filter, or search through the
+sample data.

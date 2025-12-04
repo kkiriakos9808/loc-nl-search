@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Who Lives Longer? Life Expectancy by Country of Birth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Life expectancy gap, at a glance</p>
+      <h1>Who lives longer, by country of birth?</h1>
+      <p class="lede">
+        Inspired by FlowingData's salary gap visualization, this page compares female and male life expectancy
+        at birth across selected countries. Sort, filter, and hover to see how the gap shifts.
+      </p>
+      <p class="note">Values are rounded life expectancy in years (latest public estimates available from WHO/World Bank).</p>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="controls">
+      <label class="control">
+        <span>Sort by</span>
+        <select id="sortSelect">
+          <option value="difference">Largest gap</option>
+          <option value="female">Highest female life expectancy</option>
+          <option value="male">Highest male life expectancy</option>
+          <option value="alphabetical">Country name (A–Z)</option>
+        </select>
+      </label>
+      <label class="control">
+        <span>Show only where women outlive men</span>
+        <input type="checkbox" id="femaleAdvantage" checked />
+      </label>
+      <label class="control search">
+        <span>Search country</span>
+        <input type="search" id="searchInput" placeholder="e.g., Japan" />
+      </label>
+    </section>
+
+    <section id="chart" aria-live="polite"></section>
+  </main>
+
+  <template id="countryRowTemplate">
+    <article class="country-row" role="listitem">
+      <div class="country-meta">
+        <h2 class="country-name"></h2>
+        <p class="country-gap"></p>
+      </div>
+      <div class="bar-chart" aria-hidden="true">
+        <div class="bar female-bar">
+          <span class="bar-label"></span>
+          <span class="bar-value"></span>
+        </div>
+        <div class="bar male-bar">
+          <span class="bar-label"></span>
+          <span class="bar-value"></span>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="life-expectancy-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
